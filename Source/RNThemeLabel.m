@@ -64,6 +64,12 @@
     if (self.backgroundColorKey && (backgroundColor = [[RNThemeManager sharedManager] colorForKey:self.backgroundColorKey])) {
         self.backgroundColor = backgroundColor;
     }
+    UIColor *highlightedTextColor = nil;
+    if (self.highlightedTextColorKey && (highlightedTextColor = [[RNThemeManager sharedManager] colorForKey:self.highlightedTextColorKey])) {
+        self.highlightedTextColor = highlightedTextColor;
+    }
+    
+    
 }
 
 - (void)themeDidChangeNotification:(NSNotification *)notification {
