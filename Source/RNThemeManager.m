@@ -148,4 +148,50 @@ NSString * const RNThemeManagerDidChangeThemes = @"RNThemeManagerDidChangeThemes
     return nil;
 }
 
+- (BOOL)boolForKey:(NSString *)key{
+    NSString *boolName = self.styles[key];
+    
+    while (self.styles[boolName]) {
+        boolName = self.styles[boolName];
+    }
+    
+    if (boolName) {
+        return [boolName boolValue];
+    }
+    return nil;
+    
+}
+- (NSString *)stringForKey:(NSString *)key{
+    NSString *stringName = self.styles[key];
+    
+    while (self.styles[stringName]) {
+        stringName = self.styles[stringName];
+    }
+    
+    if (stringName) {
+        return stringName;
+    }
+    return nil;
+    
+}
+- (NSNumber *)numberForKey:(NSString *)key{
+    NSString *numberName = self.styles[key];
+    
+    while (self.styles[numberName]) {
+        numberName = self.styles[numberName];
+    }
+    
+    if (numberName) {
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterDecimalStyle;
+        NSNumber *retNumber = [f numberFromString:numberName];
+        
+        return retNumber;
+    }
+    return nil;
+}
+
+
+
+
 @end
